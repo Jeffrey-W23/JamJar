@@ -44,7 +44,7 @@ const m_oDiscord = require('discord.js');
 const m_oClient = new m_oDiscord.Client();
 
 // const char for command prefix
-const m_chPrefix = process.env.TEST_PREFIX;
+const m_chPrefix = process.env.BOT_PREFIX;
 
 // const for the file system object
 const m_oFS = require('fs');
@@ -114,4 +114,4 @@ m_oClient.on('message', (oMessage) =>
 });
 
 // Must be last line of code. Login into discord bot.
-m_oClient.login(process.env.TEST_TOKEN);
+m_oClient.login(process.env.BOT_TOKEN);
