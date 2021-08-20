@@ -1,0 +1,22 @@
+{
+    "1":	"Four Colors Only",
+    "2":	"One Button Only",
+    "3":	"Two Buttons Only",
+    "4":	"The Game Must Finish In Less Than 5 Minutes",
+    "5":	"2 Colors Only",
+    "6":	"Mouse Only",
+    "7":	"Keyboard Only",
+    "8":	"The Game Must Have A Screen Resolution Of 160x144",
+    "9":	"The Game Must Use Procedural Generation",
+    "10":	"One Life Only",
+    "11":	"The Player Can Only Move Forwards",
+    "12":	"The Entire Game Fits On One Screen",
+    "13":	"No Using Weapons At All",
+    "14":	"Only Use One Enemy",
+    "15":	"Learn A New Game Engine",
+    "16":	"Don't Use Unity",
+    "17":	"The Game Must Be Less Than 1GB In Storage Size",
+    "18":	"No Loading Screens",
+    "19":	"No Music Allowed",
+    "20":	"All Bugs Must Stay (As Long As Not Game Breaking)"
+}
