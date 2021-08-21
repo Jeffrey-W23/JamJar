@@ -3,7 +3,7 @@
 // Copyright 2020 Thomas Wiltshire
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy of this 
-// software and associated documentation files (the "ImposterBot"), to deal in the Software 
+// software and associated documentation files (the "JamJar"), to deal in the Software 
 // without restriction, including without limitation the rights to use, copy, modify, 
 // merge, publish, distribute, sublicense, and/or sell copies of the Software, and to 
 // permit persons to whom the Software is furnished to do so, subject to the following 
@@ -45,9 +45,9 @@ module.exports = {
                 embed: 
                 {
                     // set the color, title and description of the embed
-                    color: 7261139,
-                    title: "ImpostorBot Help",
-                    description: "List of all available commands for use with the ImpostorBot are below! (Some commands require the role of Moderator)\n\u200B\n\ ",
+                    color: 7291139,
+                    title: "JamJar Help",
+                    description: "List of all available commands for use with the JamJar Bot are below! (Some commands may require the role of Moderator)\n\u200B\n\ ",
 
                     // create text fields for all the different bot commands
                     fields: 
@@ -55,31 +55,43 @@ module.exports = {
                         // help new command
                         {
                             name: "Help",
-                            value: "?help: List of all available commands for use with the ImpostorBot!\n\u200B"
+                            value: "?help: List of all available commands for use with the JamJar Bot!\n\u200B"
                         },
 
                         // info new command
                         {
                             name: "Info",
-                            value: "?info: An about section (Readme) on the ImpostorBot, detailing its purpose, origin and a link to where it can be download/installed.\n\u200B"
+                            value: "?info: An about section (Readme) on the JamJar Bot, detailing its purpose, origin and a link to where it can be download/installed.\n\u200B"
                         },
 
                         // ping command
                         {
                             name: "Ping",
-                            value: "?ping: Sends a message to the ImpostorBot, if received the bot will send one back. Perfect for checking if the bot is online.\n\u200B"
+                            value: "?ping: Sends a message to the JamJar Bot, if received the bot will send one back. Perfect for checking if the bot is online.\n\u200B"
                         },
 
-                        // invite command
+                        // idea command
                         {
-                            name: "Invite",
-                            value: "?invite [INVITE CODE HERE]: Invite a group of players to play Among Us. Ensure all players are present in a voice channel, input the command and The ImpostorBot will private message each voice channel member the invite code.\n\u200B"
+                            name: "Idea",
+                            value: "?idea: Generates a random idea with a theme, genre and limitation and returns it to the discord chat.\n\u200B"
                         },
 
-                        // invite new command
+                        // theme command
                         {
-                            name: "Invite-New (WIP, Might have some issues)",
-                            value: "?invite-new [INVITE CODE HERE]: Detects the last player to join a voice channel and sends an invite code to the new voice channel member."
+                            name: "Theme",
+                            value: "?theme: Generates a random game theme and returns it to the discord chat.\n\u200B"
+                        },
+
+                        // genre command
+                        {
+                            name: "Genre",
+                            value: "?genre: Generates a random game genre and returns it to the discord chat.\n\u200B"
+                        },
+
+                        // limit command
+                        {
+                            name: "Limitation",
+                            value: "?limit: Generates a random development limitation and returns it to the discord chat.\n\u200B"
                         }
                     ],
                 }

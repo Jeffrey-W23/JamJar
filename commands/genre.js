@@ -3,7 +3,7 @@
 // Copyright 2020 Thomas Wiltshire
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy of this 
-// software and associated documentation files (the "ImposterBot"), to deal in the Software 
+// software and associated documentation files (the "JamJar"), to deal in the Software 
 // without restriction, including without limitation the rights to use, copy, modify, 
 // merge, publish, distribute, sublicense, and/or sell copies of the Software, and to 
 // permit persons to whom the Software is furnished to do so, subject to the following 
@@ -24,7 +24,7 @@
 
 // INFORMATION //
 //--------------------------------------------------------------------------------------
-// Purpose: 
+// Purpose: Randomly grab and display a game genre from file and send to discord.
 //
 // Author: Thomas Wiltshire
 //--------------------------------------------------------------------------------------
@@ -33,38 +33,24 @@ module.exports = {
     
     // set name and desciption of command
     name: 'genre',
-    description: "Generate a game idea genre!",
+    description: "Generate a random game genre!",
     
     // Execute the command
     execute(oMessage, chArgs, nServerCount)
     {
-        //
+        // Get json file
         const fs = require('fs');
         const path = require('path');
-
-
-
-
-
-        //
         let rawdataGenre = fs.readFileSync('./json-data/genre.json');
         let dataGenre = JSON.parse(rawdataGenre);
 
-
-
-
-
-        //
+        // create array for json data
         var genreArray = [];
         
-
-
-
-
-        //
+        // Loop through genre data
         for (let i in dataGenre)
         {
-            // 
+            // push it to the arry
             genreArray.push
             ({  
                 id: i,  
@@ -72,21 +58,8 @@ module.exports = {
             });
         }
 
-        
-
-
-
-
-
-
-
-
-
-
-        //
+        // Generate a random number based on array size
         var genreIndex = Math.floor(Math.random() * genreArray.length);
-
-
 
         // Send a message to the text channel
         oMessage.channel.send(
@@ -94,17 +67,12 @@ module.exports = {
                 // Start embed message
                 embed: 
                 {
-                    //
-                    color: 7261139,
+                    // Get data from array based on random number index
+                    color: 7291139,
                     title: "Random Game Genre",
                     description: ":musical_note: Genre: " + "`" + genreArray[genreIndex].name + "`"
                 }
             }
         );
-
-
-
-
-
     }
 }

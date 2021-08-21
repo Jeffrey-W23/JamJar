@@ -3,7 +3,7 @@
 // Copyright 2020 Thomas Wiltshire
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy of this 
-// software and associated documentation files (the "ImposterBot"), to deal in the Software 
+// software and associated documentation files (the "JamJar"), to deal in the Software 
 // without restriction, including without limitation the rights to use, copy, modify, 
 // merge, publish, distribute, sublicense, and/or sell copies of the Software, and to 
 // permit persons to whom the Software is furnished to do so, subject to the following 
@@ -51,14 +51,14 @@ module.exports = {
                 embed: 
                 {
                     // set the color, title and description of the embed
-                    color: 7261139,
-                    title: "ImpostorBot Information",
-                    description: "Originally created for the VeryPoliteGamer community, ImpostorBot is a Discord bot designed to help Twitch streamers easily invite their viewers to play Among Us without sharing the invite code publicly. No need for private messaging or other long manual solutions.\n\u200B\n\ Check it out: [thomaswiltshire.com](https://thomaswiltshire.com/pages/projects.html)\n\u200B\n\ List of all available commands for use with the ImpostorBot are found using the ?help command!\n\u200B\n\ " + "Currently active in " + nServerCount + " servers!",
+                    color: 7291139,
+                    title: "About the Jam Jar",
+                    description: "Created from boredom and a need for inspiration in games development, The JamJar is a Discord bot designed to help Game developers and Game Jam enthusiasts easily generate game ideas or themes for inspiration or motivation in their development. No need to think or use external sites, generate a random game idea right in discord with your team.\n\u200B\n\ Check it out: [thomaswiltshire.com](https://thomaswiltshire.com/pages/projects.html)\n\u200B\n\ List of all available commands for use with the JamJar Bot are found using the ?help command!\n\u200B\n\ " + "Currently active in " + nServerCount + " servers!",
                     
                     // footer image from the bot website
                     image: 
                     {
-                        url: "https://thomaswiltshire.com/images/bottitle.png"
+                        url: "https://thomaswiltshire.com/images/bottitle2.png"
                     },
                 }
             }

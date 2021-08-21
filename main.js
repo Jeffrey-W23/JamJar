@@ -3,7 +3,7 @@
 // Copyright 2020 Thomas Wiltshire
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy of this 
-// software and associated documentation files (the "ImposterBot"), to deal in the Software 
+// software and associated documentation files (the "JamJar"), to deal in the Software 
 // without restriction, including without limitation the rights to use, copy, modify, 
 // merge, publish, distribute, sublicense, and/or sell copies of the Software, and to 
 // permit persons to whom the Software is furnished to do so, subject to the following 
@@ -73,7 +73,7 @@ for (const fFile of m_afCommandFiles)
 m_oClient.once('ready', () => 
 {
     // console log that it is online and the server counts!
-    console.log('The ImposterBot is now online!')
+    console.log('The JamJar is now online!')
     console.log(`Currently active in ${m_oClient.guilds.cache.size} servers!`);
 
     // update the server count
@@ -97,20 +97,20 @@ m_oClient.on('message', (oMessage) =>
     const chCommand = chArgs.shift().toLowerCase();
 
     // try and send a command
-    //try
-    //{
+    try
+    {
         // Send command to command file and log command activation in the console
         m_oClient.aoCommands.get(chCommand).execute(oMessage, chArgs, m_nServerCount);
         console.log(`${chCommand} command activated!`);
-    //}
+    }
 
     // catch any invalid commands
-    //catch
-    //{
+    catch
+    {
         // send message to discord chat and log error to console
         //oMessage.channel.send(`${oMessage.member} "${chCommand} ${chArgs}" is an Invalid command!`);
-        //console.log(`${chCommand} is an Invalid command!`);
-    //}
+        console.log(`${chCommand} is an Invalid command!`);
+    }
 });
 
 // Must be last line of code. Login into discord bot.
