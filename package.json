@@ -1,7 +1,7 @@
 {
-  "name": "imposterbot",
-  "version": "1.0.0",
-  "description": "",
+  "name": "jamjar",
+  "version": "1.0.1",
+  "description": "The JamJar is designed to help Game developers and Game Jam enthusiasts easily generate game ideas for inspiration in their development.",
   "main": "main.js",
   "scripts": {
     "start": "node ./main.js"

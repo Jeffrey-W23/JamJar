@@ -2,8 +2,8 @@
     "1":	"Four Colors Only",
     "2":	"One Button Only",
     "3":	"Two Buttons Only",
-    "4":	"The Game Must Finish In Less Than 5 Minutes",
-    "5":	"2 Colors Only",
+    "4":	"The Game Must Finish In Less Than 5:00 Minutes",
+    "5":	"Two Colors Only",
     "6":	"Mouse Only",
     "7":	"Keyboard Only",
     "8":	"The Game Must Have A Screen Resolution Of 160x144",
@@ -18,5 +18,8 @@
     "17":	"The Game Must Be Less Than 1GB In Storage Size",
     "18":	"No Loading Screens",
     "19":	"No Music Allowed",
-    "20":	"All Bugs Must Stay (As Long As Not Game Breaking)"
+    "20":	"All Bugs Must Stay (As Long As Not Game Breaking)",
+    "21":   "No Third Party Assets",
+    "22":   "The Player Can't Jump",
+    "23":   "No Text Allowed"
 }
