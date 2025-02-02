@@ -47,7 +47,7 @@ module.exports = {
                     // set the color, title and description of the embed
                     color: 7291139,
                     title: "JamJar Help",
-                    description: "List of all available commands for use with the JamJar Bot are below! (Some commands may require the role of Moderator)\n\u200B\n\ ",
+                    description: "List of all available commands for use with the JamJar Bot are below! (Some commands may require the role of Moderator)\n\u200B\n\ If you enjoy using this bot please help keep it online, any donation is appreciated: https://www.paypal.com/donate/?hosted_button_id=3PSYSWPSWX7CN \n\u200B\n\",
 
                     // create text fields for all the different bot commands
                     fields: 
