@@ -53,7 +53,7 @@ module.exports = {
                     // set the color, title and description of the embed
                     color: 7291139,
                     title: "About the Jam Jar",
-                    description: "Created from boredom and a need for inspiration in games development, The JamJar is a Discord bot designed to help Game developers and Game Jam enthusiasts easily generate game ideas or themes for inspiration or motivation in their development. No need to think or use external sites, generate a random game idea right in discord with your team.\n\u200B\n\ Check it out: [thomaswiltshire.com](https://thomaswiltshire.com/pages/jamjar.html)\n\u200B\n\ List of all available commands for use with the JamJar Bot are found using the ?help command!\n\u200B\n\ " + "Currently active in " + nServerCount + " servers!",
+                    description: "Created from boredom and a need for inspiration in games development, The JamJar is a Discord bot designed to help Game developers and Game Jam enthusiasts easily generate game ideas or themes for inspiration or motivation in their development. No need to think or use external sites, generate a random game idea right in discord with your team.\n\u200B\n\ Please help keep this bot online, any donation is appreciated: https://www.paypal.com/donate/?hosted_button_id=3PSYSWPSWX7CN\n\u200B\n\ Download Bot here: [thomaswiltshire.com](https://thomaswiltshire.com/pages/jamjar.html)\n\u200B\n\ List of all available commands for use with the JamJar Bot are found using the ?help command!\n\u200B\n\ " + "Currently active in " + nServerCount + " servers!",
                     
                     // footer image from the bot website
                     image: 
