@@ -29,14 +29,18 @@
 // Author: Thomas Wiltshire
 //--------------------------------------------------------------------------------------
 
+// slash command builder from discord.js
+const { SlashCommandBuilder } = require('discord.js');
+
 module.exports = {
     
     // set name and desciption of command
-    name: 'theme',
-    description: "Generate a random game theme!",
+    data: new SlashCommandBuilder()
+        .setName('theme')
+        .setDescription("Generate a random game theme!"),
     
     // Execute the command
-    execute(oMessage, chArgs, nServerCount)
+    async execute(oInteraction, nServerCount)
     {
         // Get json file
         const fs = require('fs');
@@ -62,16 +66,16 @@ module.exports = {
         var themeIndex = Math.floor(Math.random() * themeArray.length);
 
         // Send a message to the text channel
-        oMessage.channel.send(
+        await oInteraction.reply(
             {
                 // Start embed message
-                embed: 
-                {
+                embeds: 
+                [{
                     // Get data from array based on random number index
                     color: 7291139,
                     title: "Random Game Theme",
                     description: ":bulb: Theme: " + "`" + themeArray[themeIndex].name + "`"
-                }
+                }]
             }
         );
     }

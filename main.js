@@ -40,11 +40,9 @@ require('dotenv').config();
 // const discord object for the discord js module
 const m_oDiscord = require('discord.js');
 
-// const for discord client object
-const m_oClient = new m_oDiscord.Client();
-
-// const char for command prefix
-const m_chPrefix = process.env.BOT_PREFIX;
+// const for discord client object, only the Guilds intent is needed for slash commands
+// (no privileged intents such as Message Content are required)
+const m_oClient = new m_oDiscord.Client({ intents: [m_oDiscord.GatewayIntentBits.Guilds] });
 
 // const for the file system object
 const m_oFS = require('fs');
@@ -66,11 +64,11 @@ for (const fFile of m_afCommandFiles)
     const fCommand = require(`./commands/${fFile}`);
     
     // set command files in the discord client collection
-    m_oClient.aoCommands.set(fCommand.name, fCommand);
+    m_oClient.aoCommands.set(fCommand.data.name, fCommand);
 }
 
 // if the bot is ready
-m_oClient.once('ready', () => 
+m_oClient.once('clientReady', async () =>
 {
     // console log that it is online and the server counts!
     console.log('The JamJar is now online!')
@@ -78,38 +76,52 @@ m_oClient.once('ready', () =>
 
     // update the server count
     m_nServerCount = m_oClient.guilds.cache.size;
+
+    // register the slash commands with discord (global, may take a short while to appear)
+    try
+    {
+        await m_oClient.application.commands.set(m_oClient.aoCommands.map(fCommand => fCommand.data.toJSON()));
+        console.log(`Registered ${m_oClient.aoCommands.size} slash commands.`);
+    }
+    catch (oError)
+    {
+        console.error('Failed to register slash commands:', oError);
+    }
 });
 
-// Get command inputs
-m_oClient.on('message', (oMessage) => 
+// Get slash command interactions
+m_oClient.on('interactionCreate', async (oInteraction) => 
 {
+    // only handle slash commands
+    if (!oInteraction.isChatInputCommand())
+        return;
+
     // update the server count
     m_nServerCount = m_oClient.guilds.cache.size;
 
-    // Check if the prefix is used
-    if (!oMessage.content.startsWith(m_chPrefix) || oMessage.author.bot) 
+    // get the command by name, ignore unknown commands
+    const fCommand = m_oClient.aoCommands.get(oInteraction.commandName);
+    if (!fCommand)
         return;
 
-    //const char for message input
-    const chArgs = oMessage.content.slice(m_chPrefix.length).split(/ +/);
-
-    // const char for command input
-    const chCommand = chArgs.shift().toLowerCase();
-
-    // try and send a command
+    // try and run the command
     try
     {
-        // Send command to command file and log command activation in the console
-        m_oClient.aoCommands.get(chCommand).execute(oMessage, chArgs, m_nServerCount);
-        console.log(`${chCommand} command activated!`);
+        await fCommand.execute(oInteraction, m_nServerCount);
+        console.log(`${oInteraction.commandName} command activated!`);
     }
 
-    // catch any invalid commands
-    catch
+    // catch any errors
+    catch (oError)
     {
-        // send message to discord chat and log error to console
-        //oMessage.channel.send(`${oMessage.member} "${chCommand} ${chArgs}" is an Invalid command!`);
-        console.log(`${chCommand} is an Invalid command!`);
+        console.error(`${oInteraction.commandName} command failed:`, oError);
+
+        // let the user know something went wrong
+        const oReply = { content: 'There was an error running that command!', ephemeral: true };
+        if (oInteraction.replied || oInteraction.deferred)
+            await oInteraction.followUp(oReply).catch(() => {});
+        else
+            await oInteraction.reply(oReply).catch(() => {});
     }
 });
 

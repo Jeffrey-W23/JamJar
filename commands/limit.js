@@ -29,14 +29,18 @@
 // Author: Thomas Wiltshire
 //--------------------------------------------------------------------------------------
 
+// slash command builder from discord.js
+const { SlashCommandBuilder } = require('discord.js');
+
 module.exports = {
     
     // set name and desciption of command
-    name: 'limit',
-    description: "Generate a random game limitation!",
+    data: new SlashCommandBuilder()
+        .setName('limit')
+        .setDescription("Generate a random game limitation!"),
     
     // Execute the command
-    execute(oMessage, chArgs, nServerCount)
+    async execute(oInteraction, nServerCount)
     {
         // Get json file
         const fs = require('fs');
@@ -62,16 +66,16 @@ module.exports = {
         var limitIndex = Math.floor(Math.random() * limitArray.length);
 
         // Send a message to the text channel
-        oMessage.channel.send(
+        await oInteraction.reply(
             {
                 // Start embed message
-                embed: 
-                {
+                embeds: 
+                [{
                     // Get data from array based on random number index
                     color: 7291139,
                     title: "Random Development Limitation",
                     description: ":hourglass: Limitation: " + "`" + limitArray[limitIndex].name + "`"
-                }
+                }]
             }
         );
     }

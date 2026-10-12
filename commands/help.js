@@ -29,21 +29,25 @@
 // Author: Thomas Wiltshire
 //--------------------------------------------------------------------------------------
 
+// slash command builder from discord.js
+const { SlashCommandBuilder } = require('discord.js');
+
 module.exports = {
     
     // set name and desciption of command
-    name: 'help',
-    description: "List all commands avalible for the bot to the user.",
+    data: new SlashCommandBuilder()
+        .setName('help')
+        .setDescription("List all commands avalible for the bot to the user."),
     
     // Execute the command
-    execute(oMessage, chArgs, nServerCount)
+    async execute(oInteraction, nServerCount)
     {
         // Send a message to the text channel
-        oMessage.channel.send(
+        await oInteraction.reply(
             {
                 // Start embed message
-                embed: 
-                {
+                embeds: 
+                [{
                     // set the color, title and description of the embed
                     color: 7291139,
                     title: "JamJar Help",
@@ -55,46 +59,46 @@ module.exports = {
                         // help new command
                         {
                             name: "Help",
-                            value: "?help: List of all available commands for use with the JamJar Bot!\n\u200B"
+                            value: "/help: List of all available commands for use with the JamJar Bot!\n\u200B"
                         },
 
                         // info new command
                         {
                             name: "Info",
-                            value: "?info: An about section (Readme) on the JamJar Bot, detailing its purpose, origin and a link to where it can be download/installed.\n\u200B"
+                            value: "/info: An about section (Readme) on the JamJar Bot, detailing its purpose, origin and a link to where it can be download/installed.\n\u200B"
                         },
 
                         // ping command
                         {
                             name: "Ping",
-                            value: "?ping: Sends a message to the JamJar Bot, if received the bot will send one back. Perfect for checking if the bot is online.\n\u200B"
+                            value: "/ping: Sends a message to the JamJar Bot, if received the bot will send one back. Perfect for checking if the bot is online.\n\u200B"
                         },
 
                         // idea command
                         {
                             name: "Idea",
-                            value: "?idea: Generates a random idea with a theme, genre and limitation and returns it to the discord chat.\n\u200B"
+                            value: "/idea: Generates a random idea with a theme, genre and limitation and returns it to the discord chat.\n\u200B"
                         },
 
                         // theme command
                         {
                             name: "Theme",
-                            value: "?theme: Generates a random game theme and returns it to the discord chat.\n\u200B"
+                            value: "/theme: Generates a random game theme and returns it to the discord chat.\n\u200B"
                         },
 
                         // genre command
                         {
                             name: "Genre",
-                            value: "?genre: Generates a random game genre and returns it to the discord chat.\n\u200B"
+                            value: "/genre: Generates a random game genre and returns it to the discord chat.\n\u200B"
                         },
 
                         // limit command
                         {
                             name: "Limitation",
-                            value: "?limit: Generates a random development limitation and returns it to the discord chat.\n\u200B"
+                            value: "/limit: Generates a random development limitation and returns it to the discord chat.\n\u200B"
                         }
                     ],
-                }
+                }]
             }
         );
     }

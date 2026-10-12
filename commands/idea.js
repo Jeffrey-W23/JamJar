@@ -30,14 +30,18 @@
 // Author: Thomas Wiltshire
 //--------------------------------------------------------------------------------------
 
+// slash command builder from discord.js
+const { SlashCommandBuilder } = require('discord.js');
+
 module.exports = {
     
     // set name and desciption of command
-    name: 'idea',
-    description: "Generate a game idea, including theme, genre and limitations!",
+    data: new SlashCommandBuilder()
+        .setName('idea')
+        .setDescription("Generate a game idea, including theme, genre and limitations!"),
     
     // Execute the command
-    execute(oMessage, chArgs, nServerCount)
+    async execute(oInteraction, nServerCount)
     {
         // Get json files
         const fs = require('fs');
@@ -99,16 +103,16 @@ module.exports = {
         var limitIndex = Math.floor(Math.random() * limitArray.length);
 
         // Send a message to the text channel
-        oMessage.channel.send(
+        await oInteraction.reply(
             {
                 // Start embed message
-                embed: 
-                {
+                embeds: 
+                [{
                     // Get data from each array based on random number index
                     color: 7291139,
                     title: "Random Game Idea",
                     description: ":bulb: Theme: " + "`" + themeArray[themeIndex].name + "`" + "\n\u200B\n\ :musical_note: Genre: " + "`" + genreArray[genreIndex].name + "`" + "\n\u200B\n\ :hourglass: Limitation: " + "`" + limitArray[limitIndex].name + "`"
-                }
+                }]
             }
         );
     }

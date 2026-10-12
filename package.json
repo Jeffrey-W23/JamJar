@@ -1,15 +1,18 @@
 {
   "name": "jamjar",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "The JamJar is designed to help Game developers and Game Jam enthusiasts easily generate game ideas for inspiration in their development.",
   "main": "main.js",
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "start": "node ./main.js"
   },
   "author": "JeffreyW23",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^12.3.1",
+    "discord.js": "^14.16.3",
     "dotenv": "^8.2.0"
   }
 }

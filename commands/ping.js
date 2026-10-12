@@ -29,16 +29,20 @@
 // Author: Thomas Wiltshire
 //--------------------------------------------------------------------------------------
 
+// slash command builder from discord.js
+const { SlashCommandBuilder } = require('discord.js');
+
 module.exports = {
     
     // set name and desciption of command
-    name: 'ping',
-    description: "Ping the bot, good for checking it's status!",
+    data: new SlashCommandBuilder()
+        .setName('ping')
+        .setDescription("Ping the bot, good for checking it's status!"),
     
     // Execute the command
-    execute(oMessage, chArgs, nServerCount)
+    async execute(oInteraction, nServerCount)
     {
         // send message to the server
-        oMessage.channel.send(`Pong.`);
+        await oInteraction.reply('Pong.');
     }
 }

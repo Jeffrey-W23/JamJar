@@ -29,38 +29,37 @@
 // Author: Thomas Wiltshire
 //--------------------------------------------------------------------------------------
 
-// const discord object for the discord js module
-const m_oDiscord = require('discord.js');
 
-// const for discord client object
-const m_oClient = new m_oDiscord.Client();
+// slash command builder from discord.js
+const { SlashCommandBuilder } = require('discord.js');
 
 module.exports = {
     
     // set name and desciption of command
-    name: 'info',
-    description: "Post a message with some basic bot information.",
+    data: new SlashCommandBuilder()
+        .setName('info')
+        .setDescription("Post a message with some basic bot information."),
     
     // Execute the command
-    execute(oMessage, chArgs, nServerCount)
+    async execute(oInteraction, nServerCount)
     {
         // Send a message to the text channel
-        oMessage.channel.send(
+        await oInteraction.reply(
             {
                 // Start embed message
-                embed: 
-                {
+                embeds: 
+                [{
                     // set the color, title and description of the embed
                     color: 7291139,
                     title: "About the Jam Jar",
-                    description: "Created from boredom and a need for inspiration in games development, The JamJar is a Discord bot designed to help Game developers and Game Jam enthusiasts easily generate game ideas or themes for inspiration or motivation in their development. No need to think or use external sites, generate a random game idea right in discord with your team.\n\u200B\n\ Please help keep this bot online, any donation is appreciated: https://www.paypal.com/donate/?hosted_button_id=3PSYSWPSWX7CN\n\u200B\n\ Download Bot here: [thomaswiltshire.com](https://thomaswiltshire.com/pages/jamjar.html)\n\u200B\n\ List of all available commands for use with the JamJar Bot are found using the ?help command!\n\u200B\n\ " + "Currently active in " + nServerCount + " servers!",
+                    description: "Created from boredom and a need for inspiration in games development, The JamJar is a Discord bot designed to help Game developers and Game Jam enthusiasts easily generate game ideas or themes for inspiration or motivation in their development. No need to think or use external sites, generate a random game idea right in discord with your team.\n\u200B\n\ Please help keep this bot online, any donation is appreciated: https://www.paypal.com/donate/?hosted_button_id=3PSYSWPSWX7CN\n\u200B\n\ Download Bot here: [thomaswiltshire.com](https://thomaswiltshire.com/pages/jamjar.html)\n\u200B\n\ List of all available commands for use with the JamJar Bot are found using the /help command!\n\u200B\n\ " + "Currently active in " + nServerCount + " servers!",
                     
                     // footer image from the bot website
                     image: 
                     {
                         url: "https://thomaswiltshire.com/images/bottitle2.png"
                     },
-                }
+                }]
             }
         );
     }
